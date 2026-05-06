@@ -7,6 +7,8 @@ const EARNED_GOLD := 10
 
 @onready var _timer_label: Label = $VBoxContainer/TimerLabel
 @onready var _progress: ProgressBar = $VBoxContainer/ProgressBar
+@onready var _character_root: Node2D = $CharacterAnim
+@onready var _character_sprite: AnimatedSprite2D = $CharacterAnim/AnimatedSprite2D
 
 
 var _remaining: float = SESSION_SECONDS
@@ -17,6 +19,9 @@ func _ready() -> void:
 	_progress.max_value = SESSION_SECONDS
 	_progress.value = 0.0
 	_update_ui()
+	_character_root.visible = true
+	_character_sprite.stop()
+	_character_sprite.play("new_animation")
 
 
 func _process(delta: float) -> void:
