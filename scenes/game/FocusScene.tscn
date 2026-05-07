@@ -1,6 +1,76 @@
-[gd_scene load_steps=2 format=3 uid="uid://focusscene01"]
+[gd_scene load_steps=12 format=3 uid="uid://focusscene01"]
 
 [ext_resource type="Script" uid="uid://csh63cerpv62n" path="res://scenes/game/FocusScene.gd" id="1_fs"]
+[ext_resource type="Texture2D" uid="uid://b534eb6wqo2i2" path="res://asset/character/mine/Attacks.png" id="2_0qwbd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58dc6"]
+atlas = ExtResource("2_0qwbd")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa33b"]
+atlas = ExtResource("2_0qwbd")
+region = Rect2(128, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sj5ft"]
+atlas = ExtResource("2_0qwbd")
+region = Rect2(256, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4t4ei"]
+atlas = ExtResource("2_0qwbd")
+region = Rect2(384, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5x6w"]
+atlas = ExtResource("2_0qwbd")
+region = Rect2(512, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5t8es"]
+atlas = ExtResource("2_0qwbd")
+region = Rect2(640, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sowwb"]
+atlas = ExtResource("2_0qwbd")
+region = Rect2(768, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eq6hc"]
+atlas = ExtResource("2_0qwbd")
+region = Rect2(896, 0, 128, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wh8w8"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58dc6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xa33b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sj5ft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4t4ei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5x6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5t8es")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sowwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eq6hc")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
 
 [node name="FocusScene" type="Control"]
 layout_mode = 3
@@ -38,4 +108,12 @@ layout_mode = 2
 show_percentage = false
 
 [node name="CharacterAnim" type="Node2D" parent="."]
+visible = false
 position = Vector2(540, 1500)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterAnim"]
+position = Vector2(-16, -1039)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_wh8w8")
+animation = &"new_animation"
+frame_progress = 0.659416
